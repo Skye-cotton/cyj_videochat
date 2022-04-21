@@ -3,14 +3,17 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Chat from '@/components/Chat'
 import store from '../store'
-
+const Home = () => import('@/components/Home')
+const Layout = () => import('@/layout/index')
+const EditInfo = () => import('@/components/EditInfo')
+const AddFriends = () => import('@/components/AddFriends')
 Vue.use(Router)
 
 const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      redirect: '/home'
     },
     {
       path: '/login',
@@ -24,7 +27,22 @@ const router = new Router({
       meta: {
         requireAuth: true // 添加该字段，表示进入这个路由是需要登录的
       }
-    }
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/editInfo',
+      name: 'EditInfo',
+      component: EditInfo
+    },
+    {
+      path: '/addFriends',
+      name: 'AddFriends',
+      component: AddFriends
+    },
   ]
 })
 
