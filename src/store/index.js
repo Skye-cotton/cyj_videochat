@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -26,5 +26,11 @@ export default new Vuex.Store({
     updateFriends (state, data) {
       state.friends = data
     }
-  }
+  },
+  plugins: [
+    // 把vuex的数据存储到sessionStorage
+    createPersistedState({
+      storage: window.sessionStorage,
+    }),
+  ]
 })
