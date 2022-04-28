@@ -86,7 +86,7 @@ export default {
             this.$store.commit('LOGIN_IN', res.data.data)
             this.$socket.emit('signIn', this.LUsername)
             // this.$router.push('/mychat')
-            this.$router.push('/dashboard')
+            this.$router.push('/')
           } else if (res.data.status === 'onLine') {
             this.repeatdialog = true
           }

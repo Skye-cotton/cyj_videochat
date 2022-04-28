@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="bg">
-    </div>
+<!--    <div class="bg">-->
+<!--    </div>-->
     <router-view/>
   </div>
 </template>
@@ -13,6 +13,10 @@ export default {
 </script>
 
 <style>
+body{
+  margin:0;
+  padding:0;
+}
 :root {
   --blur: 5px;
 }

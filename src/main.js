@@ -8,6 +8,10 @@ import store from './store'
 import axios from 'axios'
 import VueSocketio from 'vue-socket.io'
 // import info from '../config/info'
+// TODO 全局引入element-ui ,后面优化改成按需引入
+import Element from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(Element, { size: 'small', zIndex: 3000 });
 
 Vue.config.productionTip = false
 
