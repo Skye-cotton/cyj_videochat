@@ -30,6 +30,7 @@
             <img v-for="i in emojiTotal" @click="addEmoji(i+1)" :key="i" :src="require('../../../../static/emoji/'+ (i+1) +'.gif')" alt="">
           </div>
         </div>
+        <el-button type="primary" @click="videoSend()">视频通话</el-button>
         <div class="msgText">
           <edit-pre ref="editPre" v-if="friends.length>0" @keyup.enter="send()" :child="friends[nowChat].textmsg" @updateMsg="updateMsg"></edit-pre>
           <edit-pre ref="editPre" v-else @keyup.enter="send(textmsg)" :child="textmsg" @updateMsg="updateMsg"></edit-pre>
@@ -38,12 +39,15 @@
         <textarea name="message" class="msgText" @keyup.enter="send" v-model="textmsg" v-else></textarea> -->
       </div>
       <div class="sendBtn" @click="send()">发送</div>
+      <!-- 当点击视频聊天后，再加载该模板 -->
+      <VideoCall v-if="isCalling" ></VideoCall>
     </div>
   </div>
 </template>
 
 <script>
 import EditPre from './EditDiv'
+import VideoCall from './video-call'
 export default {
   data () {
     return {
@@ -60,12 +64,17 @@ export default {
       emojiShow: false,
       emojiTotal: 68,
       imgArr: [],
+      isCalling: true
     }
   },
   components: {
-    EditPre
+    EditPre,
+    VideoCall
   },
   methods: {
+    videoSend() {
+      
+    },
     chatWith (i) {
       this.nowChat = i
       this.$refs.editPre.setInnerText()
