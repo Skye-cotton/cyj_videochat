@@ -15,19 +15,19 @@ Vue.use(Element, { size: 'small', zIndex: 3000 });
 
 Vue.config.productionTip = false
 
-Vue.use(VueSocketio, 'http://localhost:8888/')
+Vue.use(VueSocketio, 'https://192.168.150.8')
 Vue.use(Vuex)
 Vue.prototype.$axios = axios
 
-// // 设置http拦截器
-// axios.interceptors.request.use(function (config) {
-//   // 在发送请求之前做些什么
-//   config.url = 'http://127.0.0.1:8888/' + config.url
-//   return config
-// }, function (error) {
-//   // 对请求错误做些什么
-//   return Promise.reject(error)
-// })
+// 设置http拦截器
+axios.interceptors.request.use(function (config) {
+  // 在发送请求之前做些什么
+  config.url = 'https://192.168.150.8' + config.url
+  return config
+}, function (error) {
+  // 对请求错误做些什么
+  return Promise.reject(error)
+})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

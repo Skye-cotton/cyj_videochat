@@ -1,6 +1,6 @@
 let info = {
   clientAddress: {
-    host: 'localhost',
+    host: '0.0.0.0',
     port: 7777
   },
   serverAddress: {
