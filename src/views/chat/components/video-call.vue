@@ -12,7 +12,6 @@
   </el-dialog>
 </template>
 <script>
-import { io } from "socket.io";
 export default {
   data() {
     return {
@@ -45,16 +44,8 @@ export default {
   created() {
     this.StartCall(null, true);
     this.InitCamera();
-    init();
   },
   methods: {
-    init() {
-      // 初始化
-      this.socket = io();
-      this.socket.on("connect", () => {
-        console.log("连接成功");
-      });
-    },
     handleClose() {
       this.dialogVisible = false;
     },
