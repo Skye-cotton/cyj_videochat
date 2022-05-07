@@ -12,6 +12,7 @@
   </el-dialog>
 </template>
 <script>
+import { io } from "socket.io";
 export default {
   data() {
     return {
@@ -37,13 +38,23 @@ export default {
           }
         ]
       },
-      pc: []
+      pc: [],
+      socket
     };
   },
   created() {
     this.StartCall(null, true);
+    this.InitCamera();
+    init();
   },
   methods: {
+    init() {
+      // 初始化
+      this.socket = io();
+      this.socket.on("connect", () => {
+        console.log("连接成功");
+      });
+    },
     handleClose() {
       this.dialogVisible = false;
     },
@@ -65,7 +76,7 @@ export default {
             },
             stream => {
               this.localStream = stream;
-              document.getElementById("video-local").srcObject = stream;
+              document.getElementById("videos").srcObject = stream;
             },
             err => {
               console.log("访问用户媒体设备失败：", err.name, err.message);

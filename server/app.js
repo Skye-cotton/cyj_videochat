@@ -35,7 +35,9 @@ let sslOptions = {
 
 const https = require("https").createServer(sslOptions, app.callback());
 // 将socket.io挂载到https中
-var io = require("socket.io")(https);
+var io = require("socket.io")(https, {
+  cors: { origin: "*", methods: ["GET", "POST"] }
+});
 
 https.listen(443, () => {
   console.log("https listening start");
