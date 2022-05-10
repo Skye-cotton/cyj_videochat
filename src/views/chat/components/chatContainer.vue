@@ -4,7 +4,7 @@
   <div class="container">
     <div class="show-chat">
       <div id="chatPlace">
-        <p class="nowChatName">{{ friends.length > 0 ? friends[nowChat].username : '' }}</p>
+        <p class="nowChatName">{{ nowChatName.username }}</p>
         <div v-for="(item, i) in newMsg" :key="i" v-show="item.from === friends[nowChat].username || item.to === friends[nowChat].username" class="msgBox">
           <div>
             <p :style="{ float: item.from === curUsername ? 'right' : 'left'}">{{ item.date }}</p>
@@ -60,6 +60,11 @@ export default {
       emojiShow: false,
       emojiTotal: 68,
       imgArr: [],
+    }
+  },
+  computed: {
+    nowChatName: function () {
+      return JSON.parse(this.$store.state.nowChatFriend)
     }
   },
   components: {
@@ -283,17 +288,11 @@ export default {
 <style scoped lang="scss">
 @import "../../../style/index.scss";
 .show-chat{
-  padding:10px;
+  //padding:10px;
   height: calc(100vh - 300px);
-  #chatPlace .nowChatName{
-    //padding: 10px 0 10px 10px;
-    //border-bottom: 1px solid rgb(230, 228, 228);
-    //position: absolute;
-    //top: 0;
-    //left: 0;
-    //background: white;
-    //width: 100%;
-    //margin: 0;
+  #chatPlace{
+    padding: 10px;
+    border-bottom: 1px solid #333333;
   }
 }
 .input-area{
