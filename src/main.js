@@ -15,7 +15,11 @@ Vue.use(Element, { size: "small", zIndex: 3000 });
 
 Vue.config.productionTip = false;
 
-Vue.use(VueSocketio, "https://192.168.150.8");
+const localUrl = "https://192.168.150.8";
+// 公司：192.168.150.8
+// 公司宿舍：192.168.181.51
+
+Vue.use(VueSocketio, localUrl);
 
 Vue.use(Vuex);
 Vue.prototype.$axios = axios;
@@ -24,7 +28,7 @@ Vue.prototype.$axios = axios;
 axios.interceptors.request.use(
   function(config) {
     // 在发送请求之前做些什么
-    config.url = "https://192.168.150.8" + config.url;
+    config.url = localUrl + config.url;
     return config;
   },
   function(error) {

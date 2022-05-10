@@ -93,7 +93,8 @@
 
 <script>
 import EditPre from "./EditDiv";
-import VideoCall from "./video-call";
+import VideoCall from "./video-call.vue";
+
 export default {
   data() {
     return {
@@ -110,7 +111,8 @@ export default {
       emojiShow: false,
       emojiTotal: 68,
       imgArr: [],
-      isCalling: true
+      isCalling: true,
+      callType: "video"
     };
   },
   components: {

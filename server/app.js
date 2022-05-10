@@ -79,10 +79,11 @@ let socketID = {};
 io.on("connection", function(socket) {
   console.log("----- socket启动成功-------- ");
   socket.on("signIn", function(username) {
-    user[username] = socket.id;
+    user[username] = socket.id; // 每个用户都有唯一的socketID，作为通信的凭据
     socketID[socket.id] = username;
     console.log(socketID);
     console.log(user);
+    console.log(socket.id, "socketID通话凭证");
     io.sockets.emit("getOnlineNum", Object.keys(socketID).length);
   });
   socket.on("receive", function(msg, from, to) {
@@ -90,6 +91,7 @@ io.on("connection", function(socket) {
     let date = new Date().toTimeString().substr(0, 8);
     let socketId = user[to];
     let meSocketId = user[from];
+    console.log(socketId, "---", meSocketId);
     io.sockets.sockets[meSocketId].emit("newMsg", {
       from: from,
       to: to,
@@ -132,25 +134,9 @@ io.on("connection", function(socket) {
     io.sockets.emit("getOnlineNum", Object.keys(socketID).length);
     console.log(username + "下线");
   });
-  // sdp candidate
-  socket.on("sdp", data => {
-    console.log("sdp");
-    console.log(data.description);
-    console.log("sdp: " + data.sender + "  to:" + data.to);
-    socket.to(data.to).emit("sdp", {
-      description: data.description,
-      sender: data.sender
-    });
-  });
-
-  socket.on("ice candidates", data => {
-    console.log("ice candidates: ");
-    console.log(data);
-    socket.to(data.to).emit("ice candidates", {
-      candidate: data.candidate,
-      sender: data.sender
-    });
-  });
+  // 一对一视频通话
+  socket.emit("me", socket.id);
+  console.log(socket.id, "me");
 });
 
 console.log(`the server is start at port ${process.env.PORT}`);
