@@ -20,7 +20,7 @@
         </el-col>
       </el-row>
     </div>
-    <el-empty description="暂无数据" v-else></el-empty>
+    <el-empty description="快去添加好友开启聊天吧" v-else></el-empty>
     <!-- 添加好友弹窗-->
     <el-dialog
       title="添加好友"
@@ -40,7 +40,7 @@
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="handleClose">取 消</el-button>
-        <el-button type="primary" @click="addFriend">确 定</el-button>
+        <el-button type="primary" @click="addFriend">确认添加</el-button>
       </span>
     </el-dialog>
   </div>

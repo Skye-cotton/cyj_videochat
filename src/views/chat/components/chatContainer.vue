@@ -86,7 +86,7 @@
       </div>
       <div class="sendBtn" @click="send()">发送</div>
       <!-- 当点击视频聊天后，再加载该模板 -->
-      <VideoCall v-if="isCalling"></VideoCall>
+      <!-- <VideoCall v-if="isCalling"></VideoCall> -->
     </div>
   </div>
 </template>

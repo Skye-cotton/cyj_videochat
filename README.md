@@ -40,3 +40,6 @@ chen 123
 chen2 123
 
 使用 vue-socket.io
+
+样式：
+蓝色： rgb(66, 139, 202)

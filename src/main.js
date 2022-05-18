@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 
 const localUrl = "https://192.168.150.8";
 // 公司：192.168.150.8
-// 公司宿舍：192.168.181.51
+// 公司宿舍：192.168.181.167
 
 Vue.use(VueSocketio, localUrl);
 
