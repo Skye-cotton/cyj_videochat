@@ -378,17 +378,41 @@ export default {
 <style scoped lang="scss">
 @import "../../../style/index.scss";
 .show-chat {
-  padding: 10px;
-  height: calc(100vh - 300px);
-  #chatPlace .nowChatName {
-    /* //padding: 10px 0 10px 10px;
-    //border-bottom: 1px solid rgb(230, 228, 228);
-    //position: absolute;
-    //top: 0;
-    //left: 0;
-    //background: white;
-    //width: 100%;
-    //margin: 0; */
+  //padding:10px;
+  /* height: calc(100% - 300px); */
+
+  #chatPlace {
+    padding: 10px;
+    border-bottom: 1px solid #333333;
+    position: relative;
+    height: 500px;
+    overflow-y: scroll;
+    .nowChatName {
+      position: fixed;
+      background: #fff;
+      width: 100%;
+      top: 0;
+      margin: 0;
+    }
+  }
+  .msgBox,
+  .msgBox div {
+    overflow: hidden;
+  }
+  .msgBox p {
+    margin: 5px;
+  }
+  .msg {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    float: left;
+    margin: 0;
+  }
+  .myMsg {
+    background: #71b0c9;
+    float: right;
+    color: white;
   }
 }
 .input-area {

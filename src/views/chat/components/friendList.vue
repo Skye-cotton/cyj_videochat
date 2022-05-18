@@ -77,7 +77,9 @@ export default {
   },
   methods: {
     handleClick(index) {
+      console.log(this.friends[index], "+++++");
       this.activeFlag = index;
+      this.$emit("pickChat", this.friends[index]);
     },
     // 添加好友
     addFriend() {
