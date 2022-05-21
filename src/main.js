@@ -16,6 +16,7 @@ Vue.use(Element, { size: "small", zIndex: 3000 });
 Vue.config.productionTip = false;
 
 const localUrl = "https://192.168.150.8";
+// const localUrl = "http://localhost:8888/";
 // 公司：192.168.150.8
 // 公司宿舍：192.168.181.167
 
@@ -24,7 +25,7 @@ Vue.use(VueSocketio, localUrl);
 Vue.use(Vuex);
 Vue.prototype.$axios = axios;
 
-// 设置http拦截器
+// 设置http拦截器;
 axios.interceptors.request.use(
   function(config) {
     // 在发送请求之前做些什么
