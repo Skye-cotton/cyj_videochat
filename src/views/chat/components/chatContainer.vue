@@ -63,8 +63,11 @@
               alt=""
             />
           </div>
+          <div>
+            <el-button type="primary" @click="videoSend()">视频通话</el-button>
+          </div>
         </div>
-        <el-button type="primary" @click="videoSend()">视频通话</el-button>
+
         <div class="msgText">
           <edit-pre
             ref="editPre"
@@ -93,7 +96,7 @@
 
 <script>
 import EditPre from "./EditDiv";
-import VideoCall from "./video-call.vue";
+import VideoCall from "./video-call2.vue";
 
 export default {
   data() {
@@ -410,7 +413,7 @@ export default {
     margin: 0;
   }
   .myMsg {
-    background: #71b0c9;
+    background: rgb(66, 139, 202);
     float: right;
     color: white;
   }
@@ -466,7 +469,7 @@ export default {
   .sendBtn {
     padding: 5px 10px;
     border-radius: 3px;
-    background: #71b0c9;
+    background: rgb(66, 139, 202);
     color: white;
     float: right;
     margin-right: 5px;
@@ -496,7 +499,7 @@ export default {
   }
   .add input {
     width: auto;
-    border: 1px solid #71b0c9;
+    border: 1px solid rgb(66, 139, 202);
     padding: 5px;
     font-size: 16px;
     border-radius: 3px;
@@ -505,7 +508,7 @@ export default {
     display: inline-block;
     padding: 5px 10px;
     border-radius: 3px;
-    background: #71b0c9;
+    background: rgb(66, 139, 202);
     color: white;
     margin-right: 5px;
     cursor: pointer;
@@ -525,7 +528,7 @@ export default {
     margin: 0;
   }
   .myMsg {
-    background: #71b0c9;
+    background: rgb(66, 139, 202);
     float: right;
     color: white;
   }

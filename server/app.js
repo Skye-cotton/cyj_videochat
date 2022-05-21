@@ -135,8 +135,32 @@ io.on("connection", function(socket) {
     console.log(username + "下线");
   });
   // 一对一视频通话
-  socket.emit("me", socket.id);
-  console.log(socket.id, "me");
+  // socket.emit("me", socket.id);
+  // console.log(socket.id, "me");
+  // socket.on("apply", data => {
+  //   // 转发申请
+  //   socketID[socket.id].emit("apply", data);
+  // });
+  // socket.on("reply", data => {
+  //   // 转发回复
+  //   socketID[socket.id].emit("reply", data);
+  // });
+  // socket.on("1v1answer", data => {
+  //   // 转发 answer
+  //   socketID[socket.id].emit("1v1answer", data);
+  // });
+  // socket.on("1v1ICE", data => {
+  //   // 转发 ICE
+  //   socketID[socket.id].emit("1v1ICE", data);
+  // });
+  // socket.on("1v1offer", data => {
+  //   // 转发 Offer
+  //   socketID[socket.id].emit("1v1offer", data);
+  // });
+  // socket.on("1v1hangup", data => {
+  //   // 转发 hangup
+  //   socketID[socket.id].emit("1v1hangup", data);
+  // });
 });
 
 console.log(`the server is start at port ${process.env.PORT}`);
